@@ -31,6 +31,8 @@
             border-radius: 20px;
             display: inline-block;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 250px;
+            text-align: center;
         }
         .gift-container {
             display: none;
@@ -93,7 +95,7 @@
             // For debugging, log the current and target dates
             console.log("Now: ", now);
             console.log("Birthday: ", birthday);
-            console.log("Time Difference: ", diff);
+            console.log("Time Difference (in ms): ", diff);
 
             if (diff <= 0) {
                 clearInterval(countdownInterval);
@@ -110,7 +112,7 @@
         };
 
         const countdownInterval = setInterval(updateCountdown, 1000);
-        updateCountdown();
+        updateCountdown(); // Initial call to display the countdown right away
 
         const showGift = () => {
             countdownElement.style.display = 'none';
