@@ -14,7 +14,7 @@
             background-attachment: fixed;
             height: 100vh;
             text-align: center;
-            overflow: hidden;
+            overflow: auto;
         }
         h1 {
             font-family: 'Pacifico', cursive;
@@ -84,7 +84,7 @@
     <script>
         const countdownElement = document.getElementById('countdown');
         const giftContainer = document.getElementById('gift-container');
-        const birthday = new Date(2025, 0, 1,17 , 40, 0); 
+        const birthday = new Date(2025,0,1,17, 55, 0); 
 
         const updateCountdown = () => {
             const now = new Date();
