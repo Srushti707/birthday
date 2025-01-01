@@ -84,11 +84,16 @@
     <script>
         const countdownElement = document.getElementById('countdown');
         const giftContainer = document.getElementById('gift-container');
-        const birthday = new Date('2025-01-01T18:05:00'); // ISO string format
+        const birthday = new Date(2025, 0, 1, 22, 0, 0); // January 1, 2025, 10:00 PM (local time)
 
         const updateCountdown = () => {
             const now = new Date();
             const diff = birthday - now;
+
+            // For debugging, log the current and target dates
+            console.log("Now: ", now);
+            console.log("Birthday: ", birthday);
+            console.log("Time Difference: ", diff);
 
             if (diff <= 0) {
                 clearInterval(countdownInterval);
