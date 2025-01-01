@@ -84,7 +84,7 @@
     <script>
         const countdownElement = document.getElementById('countdown');
         const giftContainer = document.getElementById('gift-container');
-        const birthday = new Date(2025,0,1,17, 55, 0); 
+        const birthday = new Date('2025-01-01T17:55:00'); // ISO string format
 
         const updateCountdown = () => {
             const now = new Date();
@@ -113,7 +113,7 @@
         };
 
         const openWebsite = () => {
-            window.location.href = "greeting.html"; 
+            window.location.href = "greeting.html"; // Replace with the actual URL or file path
         };
     </script>
 </body>
