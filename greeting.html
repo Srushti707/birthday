@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #ffe6f2, #fff5e6);
+            overflow: auto;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ff66b2;
+            margin-top: 50px;
+            font-size: 3em;
+        }
+        p {
+            color: #ffcc00;
+            font-size: 1.5em;
+        }
+        #reveal-message {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background: linear-gradient(to right, #ff66b2, #ffcc00);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        #reveal-message:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        #message {
+            display: none;
+            font-size: 1.8em;
+            color: #cc0066;
+            margin-top: 20px;
+        }
+
+        /* Virtual Greeting Card Styles */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .card {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            margin: 15px;
+            perspective: 1000px;
+        }
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transform: rotateY(0);
+            transition: transform 1s;
+        }
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            color: white;
+        }
+        .card-front {
+            background: #ff66b2;
+        }
+        .card-back {
+            background: #ffcc00;
+            transform: rotateY(180deg);
+            font-size: 1.2em;
+            padding: 15px;
+            text-align: center;
+        }
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday, Love! ✨❤️</h1>
+    <p>You make my world brighter every single day!</p>
+    <p>May your year ahead be filled with happiness, love, and endless joy. ❤️</p>
+
+    <button id="reveal-message" onclick="showMessage()">Click me!</button>
+    <p id="message">You're the best bf ever! best best best! ❤️</p>
+
+    <div class="card-container">
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Open Me!</div>
+                <div class="card-back">Happy Birthday! You're my sunshine and my world. ❤️</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Open Me!</div>
+                <div class="card-back">Wishing you all the love and happiness in the world. 💖</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Open Me!</div>
+                <div class="card-back">You make every day magical. I love you endlessly! 🌟</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">Open Me!</div>
+                <div class="card-back">Happy Birthday, Love! You're my forever. ❤️</div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="bg-music" src="song.mp3" autoplay loop></audio>
+
+    <script>
+        
+        const showMessage = () => {
+            document.getElementById('message').style.display = 'block';
+        };
+    </script>
+</body>
+</html>

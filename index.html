@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Countdown</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #ffe6f2, #ffcce6, #ffb3d9);
+            background-attachment: fixed;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #ff66b2;
+            margin-top: 50px;
+            font-size: 3em;
+        }
+        #countdown {
+            font-size: 2em;
+            color: #ff3399;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .gift-container {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+        .gift-container img {
+            width: 150px;
+            animation: bounce 2s infinite;
+        }
+        .gift-container p {
+            font-size: 1.5em;
+            color: #ff3399;
+            margin-top: 10px;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Countdown to Your Birthday!</h1>
+    <div id="countdown"></div>
+
+    <div class="gift-container" id="gift-container" onclick="openWebsite()">
+        <img src="gift.png" alt="Gift Box">
+        <p>Click me for your surprise!</p>
+    </div>
+
+    <script>
+        const countdownElement = document.getElementById('countdown');
+        const giftContainer = document.getElementById('gift-container');
+        const birthday = new Date(2024, 11, 31, 23, 43, 0); 
+
+        const updateCountdown = () => {
+            const now = new Date();
+            const diff = birthday - now;
+
+            if (diff <= 0) {
+                clearInterval(countdownInterval);
+                showGift();
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        };
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        const showGift = () => {
+            countdownElement.style.display = 'none';
+            giftContainer.style.display = 'block';
+        };
+
+        const openWebsite = () => {
+            window.location.href = "greeting.html"; 
+        };
+    </script>
+</body>
+</html>
